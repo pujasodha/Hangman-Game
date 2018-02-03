@@ -11,21 +11,13 @@
 </head>
 <body>
    <div class="jumbotron">
-        
-        
-        <p style ="color: rgb(71, 71, 223)">Now, A Game About Guessing And The One Person Who Tries To Win it All.  Its</p> 
         <img src = "./arrdev.png" alt = "logo" width= "200px" height= "100px">
         <br>
         <br>
         <h2 style="color: rgb(71, 71, 223)">Hangman Edition!</h2>
     </div>
-    <div id = "button">
-        <div class="col-md-12 text-center" style="padding-top: 100px; position: absolute; z-index:2"> 
-            <button type="button" class="btn btn-primary btn-lg" onclick="window.open('hangman.html', '_self')">Lets Play!</button>
-        </div>
-        <img src = "./staircar.png" alt = "stair-car" height= "60%" width = "60%" style = "padding-bottom: 100px; "position: absolute; z-index:1">
+    <img src = "./staircar.png" alt = "stair-car" height= "60%" width = "60%" style = "padding-bottom: 100px;  position: fixed; z-index: 1">
     </div>
-</div>
 
     <script
     src="http://code.jquery.com/jquery-3.3.1.js"
@@ -35,14 +27,12 @@
   
         document.onkeyup = function(event) {
        
-        
+        //Word bank
+        var wordBank = ["anyong", "banana stand", "loose seal", "never nude", "no touching"];
         
         
         
         }
-    
+</script>
 </body>
 </html>
-
-
-
