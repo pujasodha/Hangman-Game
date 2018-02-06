@@ -1,0 +1,34 @@
+body {
+    background-color:#f5a83d;
+
+    
+
+}
+
+.jumbotron {
+    text-align: center;
+    
+}
+
+hr {
+    width: 500px;
+    color: red;
+}
+
+#alphabet-btns {
+    text-align: center;
+    padding-right: 50px;
+    padding-left: 50px;
+    font-family: 'Arial', sans-serif;
+  }
+
+.scoreBoard {
+    padding-left: 100px;
+}
+
+
+  }
+  @media screen and (max-width: 800){
+  .jumbotron  {
+    font-size: 20px;  
+  }
