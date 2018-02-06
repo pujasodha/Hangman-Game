@@ -1,34 +1,71 @@
 body {
-    background-color:#f5a83d;
-
-    
-
-}
-
-.jumbotron {
-    text-align: center;
-    
-}
-
-hr {
+    background-color: #f5a83d;
+  }
+  
+  button {
+    text-decoration: none;
+  }
+  
+  div {
+    margin: 16px 0;
+  }
+  
+  hr {
     width: 500px;
     color: red;
-}
-
-#alphabet-btns {
+  }
+  
+  #alphabet {
+    margin: 15px auto;
+    padding: 0;
+    max-width: 900px;
+  }
+  
+  #alphabet li {
+    float: left;
+    margin: 0 10px 10px 0;
+    list-style: none;
+    width: 35px;
+    height: 30px;
+    padding-top: 10px;
+    background-color: #f1f1f1;
+    color: #222222;
+    cursor: pointer;
+    border: solid 1px #888888;
+  }
+  
+  #alphabet:hover {
+    background-color: #666666;
+    border: 1px solid #f1f1f1;
+    color: #f1f1f1;
+  }
+  
+  #letters {
+    align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    width: 80%;
+  }
+  
+  .active {
+    opacity: 0.2;
+  }
+  
+  .active:hover {
+    cursor: not-allowed;
+  }
+  
+  .jumbotron {
     text-align: center;
-    padding-right: 50px;
-    padding-left: 50px;
-    font-family: 'Arial', sans-serif;
   }
-
-.scoreBoard {
+  
+  .scoreBoard {
     padding-left: 100px;
-}
-
-
   }
-  @media screen and (max-width: 800){
-  .jumbotron  {
-    font-size: 20px;  
+  
+  @media screen and (max-width: 800) {
+    .jumbotron {
+      font-size: 20px;
+    }
   }

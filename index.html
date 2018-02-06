@@ -14,30 +14,29 @@
 
 <body>
     <div class="jumbotron">
-        <p style="color: rgb(71, 71, 223)">
+        <p style="color: rgb(71, 71, 223);">
             Now, A Game About Guessing And The One Person Who Tries To Win it All. It's
         </p>
-        <img src="./assets/arrdev.png" alt="logo" width="200px" height="100px">
+        <img src="./assets/arrdev.png" alt="logo" width="200px" height="100px" class="img-responsive">
         <br>
         <br>
-        <h2 style="color: rgb(71, 71, 223)">Hangman Edition!</h2>
+        <h2 style="color: rgb(71, 71, 223);">Hangman Edition!</h2>
     </div>
-    <div id="alphabet-btns" class="col-md-12">
+    <div id="alphabet-btns" class="row">
     </div>
 
-    <p id="currentWord" class="col-md-12 text-center" style="font-size: 1.5em">What's The Phrase? </p>
+    <div class="text-center" style="font-size: 1.5em">
+        What's The Word?
+        <p id="currentState"></p>
+    </div>
 
-    <br>
-    <br>
-    <div class="scoreBoard" class="col-md-6">
+    <div class="scoreBoard" class="row">
         <p id="remainingGuesses">Number of Lives Left: </p>
-        <p id="lettersGuessed">You Have Already Guessed:</p>
+        <p id="lettersGuessed">You Have Already Guessed: </p>
         <p id="winCounter">Wins: </p>
         <p id="lossCounter">Losses: </p>
         <p id="word"></p>
-        <p class="center">
-            <button class="btn btn-default" id="reset">Reset</button>
-        </p>
+        <button class="btn btn-default center" id="reset">Reset</button>
     </div>
 
     <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>

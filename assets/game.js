@@ -1,138 +1,150 @@
 
-var wordBank = ['Anyong', 'Banana', 'Seal', 'Loose', 'Stand', 'Never', 'Nude', 'Touching'];
-
-var alphabet = [
-  'a',
-  'b',
-  'c',
-  'd',
-  'e',
-  'f',
-  'g',
-  'h',
-  'i',
-  'j',
-  'k',
-  'l',
-  'm',
-  'n',
-  'o',
-  'p',
-  'q',
-  'r',
-  's',
-  't',
-  'u',
-  'v',
-  'w',
-  'x',
-  'y',
-  'z',
-];
-
-var dashes = 0;
-var dashesAndCorrect = [];
-var currentWord = '';
-var currentLetter = [];
-var lives = 10;
-
-var wins = 0;
-var losses = 0;
-
-var guessedLetter = [];
-var correctLetter = [];
-var incorrectLetter = [];
-
-function buttons() {
-  var alphabetButtons = document.getElementById('alphabet-btns');
-  var letters = document.createElement('ul');
-  letters.id = 'letters';
-
-  for (var i = 0; i < alphabet.length; i++) {
-    listItem = document.createElement('button');
-    listItem.id = 'letter-' + alphabet[i];
-    listItem.innerHTML = alphabet[i];
-    checkLetters();
-    letters.appendChild(listItem);
-    alphabetButtons.appendChild(letters);
-  }
-};
-
-buttons();
-
-function play() {
-  lives = 10;
-  dashesAndCorrect = [];
-  guessedLetter = [];
-  incorrectLetter = [];
-  currentWord = wordBank[Math.floor(Math.random() * wordBank.length)]; // select random word from wordbank
-  currentLetter = currentWord.split(''); // split word into letters to guess only letters
-  dashes = currentLetter.length; // number of blank spaces
-  for (var i = 0; i < dashes; i++) {
-    dashesAndCorrect.push('_');
-  }
-
-  console.log('DEBUGGING...\n');
-  console.log('Current Word:', currentWord);
-
-  document.getElementById('currentWord').innerHTML =
-    "What's The Phrase?" + dashesAndCorrect.join(' ');
-  document.getElementById('remainingGuesses').innerHTML = 'Number of Lives Left: ' + lives;
-  document.getElementById('lettersGuessed').innerHTML = 'You Have Already Guessed: ';
-}
-
-//check if user's guess is in word
-function checkLetters(letter) {
-  var inWord = false;
-  for (var i = 0; i < dashes; i++) {
-    if (currentWord[i] === letter) {
-      inWord = true;
-    }
-  }
-
-  if (inWord) {
-    for (var i = 0; i < dashes; i++) {
-      if (currentWord[i] === letter) {
-        dashesAndCorrect[i] = letter;
+window.onload = function() {
+    var wordBank = ['Anyong', 'Banana', 'Seal', 'Loose', 'Stand', 'Never', 'Nude', 'Touching'];
+  
+    var alphabet = [
+      'a',
+      'b',
+      'c',
+      'd',
+      'e',
+      'f',
+      'g',
+      'h',
+      'i',
+      'j',
+      'k',
+      'l',
+      'm',
+      'n',
+      'o',
+      'p',
+      'q',
+      'r',
+      's',
+      't',
+      'u',
+      'v',
+      'w',
+      'x',
+      'y',
+      'z',
+    ];
+  
+    var lives = 10;
+    var numberOfHiddenCharacters = 0;
+    var word = '';
+    var currentLetter = '';
+    var guessedLetters = [];
+    var correctlySelectedLetters = [];
+    var incorrectlySelectedLetters = [];
+    var placeholder = [];
+  
+    var wins = 0;
+    var losses = 0;
+  
+    var buttons = function() {
+      var alphabetButtons = document.getElementById('alphabet-btns');
+      var letters = document.createElement('div');
+      letters.id = 'letters';
+      letters.className = 'offset-md-2 col-md-8 offset-md-2';
+  
+      for (var i = 0; i < alphabet.length; i++) {
+        letterButton = document.createElement('button');
+        letterButton.class = 'letter';
+        letterButton.innerHTML = alphabet[i];
+        checkLetter();
+        letters.appendChild(letterButton);
       }
-    }
-    console.log(dashesAndCorrect);
-  } else {
-    incorrectLetter.push(letter);
-    lives--;
-    console.log('incorrect letter choice, ' + lives + ' lives are left');
-  }
-}
-
-function round() {
-  console.log('WinCount: ' + wins + ' Losses: ' + losses + 'guesses: ' + lives);
-
-  document.getElementById('currentWord').innerHTML =
-    "What's The Phrase?" + dashesAndCorrect.join('');
-  document.getElementById('remainingGuesses').innerHTML = 'Number of Lives Left' + lives;
-  document.getElementById('lettersGuessed').innerHTML = 'You Have Already Guessed: ';
-
-  if (currentWord.toString() === dashesAndCorrect.toString()) {
-    wins++;
-    document.getElementsByID('word').innerHTML = 'The word was ' + 'currentWord';
-    alert('You win!');
-  }
-
-  document.getElementById('wins').innerHTML = 'Wins: ' + wins + ' game(s)';
-  play();
-}
-if (lives === 0) {
-  losses++;
-  document.getElementById('word').innerHTML = 'You have lost' + losses + ' game(s)';
-  play();
-}
-
-document.getElementById('reset').onclick = function() {
-  correct.parentNode.removeChild(correct);
-  letters.parentNode.removeChild(letters);
-  showClue.innerHTML = '';
-  context.clearRect(0, 0, 400, 400);
-  play();
-};
-
-play();
+  
+      alphabetButtons.appendChild(letters);
+    };
+  
+    //check if users guess is in word
+    checkLetter = function() {
+      letterButton.onclick = function() {
+        var guess = this.innerHTML;
+        this.setAttribute('class', 'active');
+        this.onclick = null;
+  
+        if (word.includes(guess)) {
+          for (var i = 0; i < wordLength; i++) {
+            // letter may exist multiple times in word
+            if (word[i] === guess) {
+              placeholder[i] = guess;
+              correctlySelectedLetters.push(guess);
+              console.log('Correct! ', guess, ' is a letter in the word');
+            }
+          }
+        } else {
+          incorrectlySelectedLetters.push(guess);
+          lives--;
+          console.log(
+            'Incorrect, ',
+            guess,
+            ' is NOT a letter in the word. ' + lives + ' lives are left'
+          );
+        }
+  
+        guessedLetters = correctlySelectedLetters.concat(incorrectlySelectedLetters);
+        updateDialogue();
+      };
+    };
+  
+    var play = function() {
+      // reset values
+      hiddenCharacters = 0;
+      guessedLetters = [];
+      correctlySelectedLetters = [];
+      incorrectlySelectedLetters = [];
+  
+      randomIndex = Math.floor(Math.random() * wordBank.length);
+      word = wordBank[randomIndex].toLowerCase(); // lowercase for input matching
+  
+      wordLetters = word.split(''); // split word into letters to prevent multiple similar operations
+      wordLength = wordLetters.length;
+      numberOfHiddenCharacters = wordLength; // number of blank spaces
+  
+      for (var i = 0; i < numberOfHiddenCharacters; i++) {
+        placeholder.push('_');
+      }
+  
+      console.log('Current Word:', word);
+      console.log('Current placeholder: ', placeholder);
+  
+      // Dynamic Elements
+      document.getElementById('currentState').innerHTML = placeholder.join(' ');
+      document.getElementById('remainingGuesses').innerHTML = 'Number of Lives Left: ' + lives;
+      document.getElementById('lettersGuessed').innerHTML =
+        "You've Already Guessed: " + guessedLetters;
+    };
+  
+    var updateDialogue = function() {
+      // Dynamic Elements
+      if (!lives) {
+        losses++;
+        document.getElementById('remainingGuesses').innerHTML = 'Number of Lives Left: ' + lives;
+        document.getElementById('lettersGuessed').innerHTML =
+          "You've Already Guessed: " + guessedLetters;
+        document.getElementById('word').innerHTML =
+          'You have lost' + losses + ' game(s). Please press "Reset"';
+        return;
+      }
+  
+      document.getElementById('currentState').innerHTML = placeholder.join(' ');
+      document.getElementById('remainingGuesses').innerHTML = 'Number of Lives Left: ' + lives;
+      document.getElementById('lettersGuessed').innerHTML =
+        "You've Already Guessed: " + guessedLetters;
+    };
+  
+    document.getElementById('reset').onclick = function() {
+      correctlySelectedLetters = [];
+      incorrectlySelectedLetters = [];
+      guessedLetters = [];
+      lives = 10;
+      play();
+    };
+  
+    buttons(); // generate alphabet buttons
+    play();
+  };
