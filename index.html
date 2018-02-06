@@ -1,56 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="./assets/style.css" rel= "stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link href="./assets/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Rammetto+One" rel="stylesheet">
-    <title>Hangman</title> 
+    <title>Hangman</title>
 </head>
+
 <body>
-   <div class="jumbotron">
-        
-        
-        <p style ="color: rgb(71, 71, 223)">Now, A Game About Guessing And The One Person Who Tries To Win it All.  Its</p> 
-        <img src = "./assets/arrdev.png" alt = "logo" width= "200px" height= "100px">
+    <div class="jumbotron">
+        <p style="color: rgb(71, 71, 223)">
+            Now, A Game About Guessing And The One Person Who Tries To Win it All. It's
+        </p>
+        <img src="./assets/arrdev.png" alt="logo" width="200px" height="100px">
         <br>
         <br>
         <h2 style="color: rgb(71, 71, 223)">Hangman Edition!</h2>
     </div>
     <div id="alphabet-btns" class="col-md-12">
-    <p id ="currentWord" class = "col-md-12 text-center" style= "font-size: 1.5em">What's The Phrase? </p>
-</div>
-    
-<br>
-<br>
-        <div class = "scoreBoard" class = "col-md-6" >
-                <p id = "remainingGuesses" >Number of Lives Left: </p>
-                <p id = "lettersGuessed" >You Have Already Guessed:</p>
-                <p id = "winCounter" >Wins: </p>
-                <p id = "lossCounter">Losses: </p>
-                <p id=  "word"></p>
-                <p class="center"><button class="btn btn-default" id="reset">Reset</button></p>
-         </div>
-        </div>
-        
-        </div>
-    
     </div>
 
-    <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous"></script>
+    <p id="currentWord" class="col-md-12 text-center" style="font-size: 1.5em">What's The Phrase? </p>
+
+    <br>
+    <br>
+    <div class="scoreBoard" class="col-md-6">
+        <p id="remainingGuesses">Number of Lives Left: </p>
+        <p id="lettersGuessed">You Have Already Guessed:</p>
+        <p id="winCounter">Wins: </p>
+        <p id="lossCounter">Losses: </p>
+        <p id="word"></p>
+        <p class="center">
+            <button class="btn btn-default" id="reset">Reset</button>
+        </p>
+    </div>
+
+    <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="./assets/game.js"></script>
 </body>
- 
+
 </html>
-    </div>
-</div>
-
-
-    
-</body>
-</html>
-
-
-
