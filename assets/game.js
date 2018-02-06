@@ -43,13 +43,13 @@ var guessedLetter = [];
 var correctLetter = [];
 var incorrectLetter = [];
 
-var buttons = function() {
+function buttons() {
   var alphabetButtons = document.getElementById('alphabet-btns');
   var letters = document.createElement('ul');
   letters.id = 'letters';
 
   for (var i = 0; i < alphabet.length; i++) {
-    listItem = document.createElement('li');
+    listItem = document.createElement('button');
     listItem.id = 'letter-' + alphabet[i];
     listItem.innerHTML = alphabet[i];
     checkLetters();
@@ -57,6 +57,8 @@ var buttons = function() {
     alphabetButtons.appendChild(letters);
   }
 };
+
+buttons();
 
 function play() {
   lives = 10;
@@ -80,7 +82,7 @@ function play() {
 }
 
 //check if user's guess is in word
-function checkLetters(letters) {
+function checkLetters(letter) {
   var inWord = false;
   for (var i = 0; i < dashes; i++) {
     if (currentWord[i] === letter) {
