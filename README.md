@@ -11,4 +11,3 @@ Javascript
 
 # Screenshot
 
-/Users/pujasodha/Desktop/Screen Shot 2018-05-07 at 1.33.18 PM.png
